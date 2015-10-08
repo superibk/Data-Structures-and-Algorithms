@@ -2,8 +2,6 @@ package org.meltwater.java.datastructures;
 
 public class BetterArray<E extends Comparable> {
 	
-	
-	// remember to work on the comparable functions
 
 	private E[] array;
 	private final int DEFAULT_ARRAY_SIZE = 10;

@@ -119,15 +119,14 @@ public class SinglyLinkedList<E> {
 		return false;
 	}
 
-	//
-	public void reverse() { // not working  yet
-//		 LinkedNode pre, cur, nex;
-//		 pre = first;
-//		 while(true){
-//		 current = pre.next;
-//		 nex = current.next;
-//		 current.next = pre;
-//		 }
+	public void reverse() {
+		// LinkedNode pre, cur, nex;
+		// pre = first;
+		// while(true){
+		// current = pre.next;
+		// nex = current.next;
+		// current.next = pre;
+		// }
 	}
 
 	public String toString() {

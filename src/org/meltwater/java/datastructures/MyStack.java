@@ -7,8 +7,6 @@ public class MyStack<E extends Comparable> {
 	private final int DEFAULT_NOT_FOUND = -1;
 	private int position;
 
-	
-
 	public MyStack(int size) {
 		stackArray = (E[]) (new Object[size]);
 		position = 0;
@@ -20,7 +18,8 @@ public class MyStack<E extends Comparable> {
 	}
 
 	public void push(E element) {
-		if (isFull()) throw new RuntimeException("Stack overflow");
+		if (isFull())
+			throw new RuntimeException("Stack overflow");
 		stackArray[position++] = element;
 	}
 
@@ -46,7 +45,7 @@ public class MyStack<E extends Comparable> {
 		if (isEmpty())
 			throw new RuntimeException("Stack underflow");
 		else
-			return stackArray[position-1];
+			return stackArray[position - 1];
 	}
 
 	public boolean isFull() {
@@ -55,15 +54,13 @@ public class MyStack<E extends Comparable> {
 		else
 			return false;
 	}
-	
-	public int contains(E element){
-		for (int k=0 ; k<= position; k++ ){
-			if(stackArray[k].compareTo((E)element) == 0)
+
+	public int contains(E element) {
+		for (int k = 0; k <= position; k++) {
+			if (stackArray[k].compareTo((E) element) == 0)
 				return k;
 		}
 		return DEFAULT_NOT_FOUND;
 	}
-
-	
 
 }

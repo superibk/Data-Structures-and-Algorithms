@@ -1,13 +1,18 @@
 package org.meltwater.java.datastructures;
 
 public class Queue<E extends Comparable> {
-	
+
 	E[] queueArray;
 	private final int DEFAULT_STACK_SIZE = 10;
 	private final int DEFAULT_NOT_FOUND = -1;
 	private int position;
 
-	
+	private void remove(int index) {
+		for (int i = index; i <= position - 1; i++) {
+			queueArray[i] = queueArray[i + 1];
+		}
+		position--;
+	}
 
 	public Queue(int size) {
 		queueArray = (E[]) (new Object[size]);
@@ -20,7 +25,8 @@ public class Queue<E extends Comparable> {
 	}
 
 	public void enqueue(E element) {
-		if (isFull()) throw new RuntimeException("Stack overflow");
+		if (isFull())
+			throw new RuntimeException("Stack overflow");
 		queueArray[position++] = element;
 	}
 
@@ -35,18 +41,15 @@ public class Queue<E extends Comparable> {
 		return position;
 	}
 
-	public E deQueue() {
+	public void deQueue() {
 		if (isEmpty())
 			throw new RuntimeException("Stack underflow");
 		else
-			return queueArray[position--]; // return the saved item
+			remove(0);
 	}
 
 	public E peek() {
-		if (isEmpty())
-			throw new RuntimeException("Stack underflow");
-		else
-			return queueArray[position-1];
+		return queueArray[0];
 	}
 
 	public boolean isFull() {
@@ -55,15 +58,13 @@ public class Queue<E extends Comparable> {
 		else
 			return false;
 	}
-	
-	public int contains(E element){
-		for (int k=0 ; k<= position; k++ ){
-			if(queueArray[k].compareTo((E)element) == 0)
+
+	public int contains(E element) {
+		for (int k = 0; k <= position; k++) {
+			if (queueArray[k].compareTo((E) element) == 0)
 				return k;
 		}
 		return DEFAULT_NOT_FOUND;
 	}
-
-	
 
 }
